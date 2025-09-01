@@ -48,3 +48,8 @@ variable "virtual_site_name" {
   type    = string
   default = "ha-services-ce-vs"
 }
+
+variable "virtual_site_name_vk8s" {
+  type    = string
+  default = "ha-services-ce-vs-vk8s"
+}

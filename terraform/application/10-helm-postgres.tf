@@ -4,7 +4,7 @@ resource "helm_release" "postgres" {
 
   wait = false
 
-  namespace = "${var.environment}"
+  namespace = "${data.volterra_namespace.hace.name}"
 
   values = [
     "${file("${var.helm_path}/postgres/values.yaml")}"
@@ -13,7 +13,7 @@ resource "helm_release" "postgres" {
   set =[
     {
       name  = "postgresql-ha.commonAnnotations.ves\\.io\\/virtual-sites"
-      value = "${var.environment}/${var.virtual_site_name}"
+      value = "${data.volterra_namespace.hace.name}/${var.virtual_site_name}"
     },
     {
       name  = "postgresql-ha.clusterDomain"

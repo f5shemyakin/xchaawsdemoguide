@@ -80,6 +80,12 @@ resource "volterra_aws_vpc_site" "site" {
 
   no_worker_nodes = true
 
+  lifecycle {
+    ignore_changes = [
+      labels
+    ]
+  }
+
   depends_on = [
     volterra_cloud_credentials.aws_cred,
     aws_subnet.subnet_a,
