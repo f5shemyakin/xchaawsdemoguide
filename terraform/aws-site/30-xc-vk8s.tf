@@ -21,6 +21,7 @@ resource "volterra_virtual_k8s" "hace" {
 }
 
 resource "volterra_api_credential" "hace" {
+  created_at            = timestamp()
   name                  = "${var.environment}-kubeconfig"
   api_credential_type   = "KUBE_CONFIG"
   virtual_k8s_namespace = volterra_namespace.hace.name

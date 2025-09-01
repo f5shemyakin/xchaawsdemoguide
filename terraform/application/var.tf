@@ -26,7 +26,7 @@ variable "helm_path" {
 
 variable "cluster_domain" {
   type    = string
-  default = "your_site_name.your_tenant_full_name.tenant.local"
+  default = ""
 }
 
 variable "registry_username" {

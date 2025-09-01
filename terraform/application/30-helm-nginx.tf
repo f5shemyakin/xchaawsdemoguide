@@ -8,8 +8,10 @@ resource "helm_release" "nginx" {
     "${file("${var.helm_path}/nginx/values.yaml")}"
   ]
 
-  set {
-    name  = "imagePullSecret.name"
-    value = "registry-secret"
-  }
+  set = [
+    {
+      name  = "imagePullSecret.name"
+      value = "registry-secret"
+    }
+  ]
 }
